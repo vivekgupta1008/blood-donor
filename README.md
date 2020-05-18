@@ -1,5 +1,11 @@
-application to search blood donor
--sign up into the app with name, number, blood group
--the app stores user information in firebase database
--search blood donors around you from home page
--send notification/message to donors
+* application to search blood donor
+
+* sign up into the app with name, number, blood group
+
+* the app stores user information in firebase database
+
+* user can search blood donors around from home page
+
+* user can search by location, search by donor type.
+
+* send notification/message to donors requesting for donation
