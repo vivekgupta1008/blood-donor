@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.vivekgupta.bdonor">
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:windowSoftInputMode = "adjustResize">
+        <!--<meta-data-->
+            <!--android:name="com.google.firebase.messaging.default_notification_icon"-->
+            <!--android:resource="@drawable/ic_launcher" />-->
+        <!--&lt;!&ndash; Set color used with incoming notification messages. This is used when no color is set for the incoming-->
+             <!--notification message. See README(https://goo.gl/6BKBk7) for more. &ndash;&gt;-->
+        <!--<meta-data-->
+            <!--android:name="com.google.firebase.messaging.default_notification_color"-->
+            <!--android:resource="@android:color/white" />-->
+        <activity android:name="com.vivekgupta.bdonor.activities.LoginActivity"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.vivekgupta.bdonor.activities.SignupActivity"/>
+        <activity android:name="com.vivekgupta.bdonor.activities.ResetPasswordActivity"/>
+        <activity
+            android:name="com.vivekgupta.bdonor.activities.MainActivitySaveLife"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTop"/>
+        <activity android:name="com.vivekgupta.bdonor.activities.SearchResultActivity"
+            android:parentActivityName="com.vivekgupta.bdonor.activities.MainActivitySaveLife"/>
+        <activity android:name="com.vivekgupta.bdonor.activities.BListActivity"
+            android:parentActivityName="com.vivekgupta.bdonor.activities.MainActivitySaveLife" />
+        <activity android:name="com.vivekgupta.bdonor.activities.RequestListActivity"
+            android:parentActivityName="com.vivekgupta.bdonor.activities.BListActivity"/>
+        <service
+            android:name="com.vivekgupta.bdonor.services.MyFireBaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.vivekgupta.bdonor.broadcastreceiver.LocationUpdatesBroadcastReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.vivekgupta.bdonor.broadcastreceiver.LocationUpdatesBroadcastReceiver.ACTION_PROCESS_UPDATES"></action>
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>
